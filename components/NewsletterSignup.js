@@ -1,7 +1,7 @@
 export default function NewsletterSignup(props) {
   return (
     <form
-      action="https://urbit.us11.list-manage.com/subscribe/post?u=972a03db9e0c6c25bb58de8c8&amp;amp;id=be143888d2"
+      action="https://qlfintech.us12.list-manage.com/subscribe/post?u=673c533b8a48db89a59c6359d&amp;id=49d5a8f021&amp;f_id=006ebde0f0"
       method="post"
       id="mc-embedded-subscribe-form"
       name="mc-embedded-subscribe-form"
