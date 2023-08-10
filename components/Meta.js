@@ -1,12 +1,8 @@
 export default function Meta(post, disableImage, large = false) {
-  const author = post?.extra?.author || "urbit.org";
-  const title = post?.title ? post.title : "";
+  const author = post?.extra?.author || "qlfintech.com";
+  const title = post?.title ? post.title : "Quantum Leap Financials";
   const description =
-    post?.description || "Urbit is a new kind of computer that you can own completely in ways that matter: networking, identity, & data.";
-  const image =
-    post?.extra?.image ||
-    post?.image ||
-    "https://storage.googleapis.com/media.urbit.org/site/opengraph/sig-white.png";
+    post?.description || "Quamtum Leap is working to bring about a paradigm shift to the financial world.";
   return (
     <>
       <link rel="icon" type="image/png" href="/images/favicon.ico" />
@@ -34,22 +30,12 @@ export default function Meta(post, disableImage, large = false) {
         content={large ? "summary_large_image" : "summary"}
         key="twitter-card"
       />
-      <meta name="twitter:site" content="@urbit" key="twitter-site" />
-      <meta name="twitter:creator" content="@urbit" key="twitter-creator" />
+      <meta name="twitter:site" content="@qlfintech" key="twitter-site" />
+      <meta name="twitter:creator" content="@qlfintech" key="twitter-creator" />
       <meta name="og:title" content={title} key="title" />
       <meta name="og:description" content={description} key="description" />
       <meta name="description" content={description} />
       <meta name="author" content={author} key="author" />
-      <meta name="cf-2fa-verify" content="hj147kyae651DBG6j8fsg" />
-      {!disableImage && (
-        <meta name="twitter:image" content={image} key="image" />
-      )}
-      <link
-        rel="alternative"
-        type="application/rss+xml"
-        title="RSS"
-        href="/rss.xml"
-      />
     </>
   );
 }

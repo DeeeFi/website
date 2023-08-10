@@ -25,7 +25,7 @@ export default function BasicPage({ post, markdown, search, index = false }) {
         <title>{post.title}</title>
         {Meta(post)}
       </Head>
-      <IntraNav ourSite="quantum.leap" search={search} />
+      <IntraNav ourSite="qlfintech.com" search={search} />
       <SingleColumn>
         <Header search={search} />
         <Section>
