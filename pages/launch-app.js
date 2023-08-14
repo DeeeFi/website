@@ -1,4 +1,5 @@
 import { abi } from '../public/contract-abi'
+import { lpcabi } from '../public/lpcontract-abi';
 
 import dynamic from 'next/dynamic';
 
@@ -38,7 +39,11 @@ import {
 } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 
-import { useAccount, usePrepareContractWrite, useContractWrite } from 'wagmi';
+import { 
+  useAccount,
+  useContractRead,
+  usePrepareContractWrite,
+  useContractWrite } from 'wagmi';
 import '@rainbow-me/rainbowkit/styles.css';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
@@ -89,8 +94,13 @@ const wagmiConfig = createConfig({
 
 
 const contractConfig = {
-  address: '0xB73a1Ac42858603FC18eF2F2729a05c1B5379691',
-  abi,
+  address: '0xBA12222222228d8Ba445958a75a0704d566BF2C8',
+  abi: abi,
+};
+
+const lpcontractConfig = {
+  address: '0x65FaAC6ACbd781e7B3E799fa7f6e90b0263Fa51E',
+  abi: lpcabi,
 };
 
 // const TVChartContainer = dynamic(
@@ -114,7 +124,7 @@ export default function App() {
 }
 
 function WalletInfo() {
-    const { isConnected } = useAccount();
+    const { address, isConnected } = useAccount();
 
     // https://stackoverflow.com/a/75365001
     const [connectionStat, setConnectionStat] = React.useState();
@@ -122,18 +132,21 @@ function WalletInfo() {
         setConnectionStat(isConnected);
     }, [isConnected])
 
-    const { config: contractWriteConfig } = usePrepareContractWrite({
+    const { data: poolAddress } = useContractRead({
         ...contractConfig,
-        functionName: 'mint',
+        functionName: 'getPool',
+        args: ['0x65faac6acbd781e7b3e799fa7f6e90b0263fa51e000200000000000000000866'],
+        watch: true,
     });
 
-    const {
-        data: mintData,
-        write: mint,
-        isLoading: isMintLoading,
-        isSuccess: isMintStarted,
-        error: mintError,
-    } = useContractWrite(contractWriteConfig);
+    const { data: lpBalance } = useContractRead({
+        ...lpcontractConfig,
+        functionName: 'balanceOf',
+        args: ["0x5bC2852fEB943B4A43Fa87b275f44B45C4Ca527f"],
+        watch: true,
+    });
+    console.log({lpBalance});
+
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -149,15 +162,15 @@ function WalletInfo() {
         <div> <ConnectButton /> </div>
         </div>
 
-        {connectionStat && (
-        <div className="pt-12">
-            <button type="button"
-            className="self-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded-lg"
-            onClick={() => mint?.()}>
-            Mint
-            </button>
+        <div className="flex flex-col items-center">
+          <p style={{ margin: '12px 0 24px' }}>
+              五五开地址: {poolAddress}
+          </p>
+          <p style={{ margin: '12px 0 24px' }}>
+              你的lp余额: {Number(lpBalance)}
+          </p>
         </div>
-        )}
+
 
         </Section>
 
