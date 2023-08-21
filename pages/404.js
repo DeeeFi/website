@@ -16,7 +16,7 @@ export default function NotFound(props) {
   return (
     <Container>
       <Head>
-        <title>404 • urbit.org</title>
+        <title>404 • qlfintech.com/</title>
         {Meta(post)}
       </Head>
       <SingleColumn>

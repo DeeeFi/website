@@ -36,7 +36,7 @@ export default function Home({
   const post = {
     title: "QEF",
     description: "Quantum Leap Financials.",
-    image: "https://storage.googleapis.com/media.urbit.org/site/opengraph/urbit.png"
+    image: "https://i.imgur.com/4DBDR9y.png"
   };
   return (
     <Container>
