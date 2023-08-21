@@ -178,6 +178,16 @@ function WalletInfo() {
         Radar chart
         </Section>
 
+        <Section>
+        Welcome to Entanglement, the flagship fund offering from [Your Hedge Fund Company Name]. We are at the vanguard of financial evolution, ensuring that our investors not only navigate but also thrive in the dynamic world of digital assets.
+
+        At the core of our philosophy is our unwavering commitment to rigorous research. Our team of seasoned professionals, backed by cutting-edge technological infrastructure, continuously delves deep into the intricate layers of the crypto universe. Our approach isn't just about riding the waves but understanding the currents that create them.
+
+        The [Your Fund's Name] is designed for those who understand the significance of blockchain technology and the transformative power of cryptocurrencies, but desire a structured and research-driven approach to their investments. We offer broad exposure to the crypto market while also ensuring that our portfolio is refined, researched, and resilient.
+
+        Step into the future of investing with [Your Fund's Name]. Let our expertise guide your journey in the decentralized world. Join us, and be a part of the financial renaissance.
+        </Section>
+
 
         </main>
     )
