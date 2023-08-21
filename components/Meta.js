@@ -1,8 +1,8 @@
 export default function Meta(post, disableImage, large = false) {
   const author = post?.extra?.author || "qlfintech.com";
-  const title = post?.title ? post.title : "Quantum Leap Financials";
+  const title = post?.title ? post.title : "[Redacted] Financials";
   const description =
-    post?.description || "Quamtum Leap is working to bring about a paradigm shift to the financial world.";
+    post?.description || "[Redacted] is working to bring about a paradigm shift to the financial world.";
   return (
     <>
       <link rel="icon" type="image/png" href="/images/favicon.ico" />

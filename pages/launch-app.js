@@ -155,7 +155,7 @@ function WalletInfo() {
 
         <Section>
         <h1>
-        Quantum Leap Financials Entanglement Fund (QEF)
+        Entanglement Fund (QEF)
         </h1>
 
         <div className="grid w-full grid-cols-1 pt-12 justify-items-end">

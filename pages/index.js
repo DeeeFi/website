@@ -34,14 +34,14 @@ export default function Home({
   search,
 }) {
   const post = {
-    title: "Quantum Leap Financials",
+    title: "[Redacted]",
     description: "Crypto-native financial services.",
     image: "https://i.imgur.com/4DBDR9y.png"
   };
   return (
     <Container>
       <Head>
-        <title>Quantum Leap Financials</title>
+        <title>[Redacted]</title>
         {Meta(post, false, true)}
       </Head>
       <SingleColumn>
@@ -51,7 +51,7 @@ export default function Home({
         }
         <Section className="pb-36">
           <div className="space-y-8">
-            <h1>Quantum Leap: Crypto Investment Management.</h1>
+            <h1>[Redacted]: Leap into the future of investment.</h1>
             <Link href="/launch-app" passHref><a className="bg-green-400 text-white button-lg max-w-fit">Launch App</a></Link>
           </div>
         </Section>
@@ -60,8 +60,8 @@ export default function Home({
         }
 
         <Section narrow>
-          <h2 className="pb-2">QEF Newsletter</h2>
-          <p className="pb-8">Get monthly email updates on all things QLeap.</p>
+          <h2 className="pb-2">[Redacted] Newsletter</h2>
+          <p className="pb-8">Get monthly email updates on all things [Redacted].</p>
           <Contact emphasize />
         </Section>
 
@@ -72,17 +72,7 @@ export default function Home({
             Follow us on <Link href="https://twitter.com/intent/user?screen_name=quantumleap2022">X</Link>
           </p>
           <p className="pb-2">
-            Check out our posts on{" "}
-            <Link href="http://instagram.com/">Instagram</Link>
-          </p>
-          <p className="pb-2">
-            Watch livestreams on{" "}
-            <Link href="https://www.youtube.com/">
-              YouTube
-            </Link>
-          </p>
-          <p className="pb-2">
-            Dig into code on <Link href="http://github.com/">Github</Link>
+            Dig into code on <Link href="https://github.com/DeeeFi/">Github</Link>
           </p>
         </Section>
       </SingleColumn>

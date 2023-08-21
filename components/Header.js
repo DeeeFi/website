@@ -32,7 +32,7 @@ export default function Header(props) {
     <header className="layout px-4 md:px-8 flex justify-between items-center pt-8 md:pt-10 lg:pt-12 pb-10 md:pb-12 lg:pb-24">
       <div>
         <Link href="/" passHref>
-          <a className="font-semibold text-lg">Quantum Leap Financials</a>
+          <a className="font-semibold text-lg">[Redacted]</a>
         </Link>
         {routeDepth > 2 ? (
           <Link href={`/${firstCrumb}`} passHref>
