@@ -69,7 +69,7 @@ export default function Home({
         <Section narrow>
           <h2 className="pb-8">Social Media</h2>
           <p className="pb-2">
-            Follow us on <Link href="http://twitter.com/">Twitter</Link>
+            Follow us on <Link href="https://twitter.com/intent/user?screen_name=quantumleap2022">X</Link>
           </p>
           <p className="pb-2">
             Check out our posts on{" "}
