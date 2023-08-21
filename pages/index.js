@@ -34,8 +34,8 @@ export default function Home({
   search,
 }) {
   const post = {
-    title: "QEF",
-    description: "Quantum Leap Financials.",
+    title: "Quantum Leap Financials",
+    description: "Crypto-native financial services.",
     image: "https://i.imgur.com/4DBDR9y.png"
   };
   return (
