@@ -64,6 +64,25 @@ export default function Home({
           <p className="pb-8">Get monthly email updates on all things [Redacted].</p>
           <Contact emphasize />
         </Section>
+        {
+          // Blog Posts
+        }
+        <Section>
+          <div className="flex items-center measure pb-12">
+            <h2>Blog</h2>
+          </div>
+
+          <TwoUp>
+            <PostPreview post={posts[0]} key={posts[0].slug} />
+            <PostPreview post={posts[1]} key={posts[1].slug} />
+          </TwoUp>
+
+          <Link href="/blog" passHref>
+            <a className="button-lg max-w-fit type-ui text-white bg-green-400 z-10">
+              See More
+            </a>
+          </Link>
+        </Section>
 
 
         <Section narrow>
@@ -79,4 +98,21 @@ export default function Home({
       <Footer />
     </Container>
   );
+}
+
+
+
+export async function getStaticProps() {
+  // Latest blog posts
+  const posts = getAllPosts(
+    ["title", "slug", "date", "description", "extra"],
+    "blog",
+    "date"
+  );
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }
