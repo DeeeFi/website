@@ -138,7 +138,7 @@ function WalletInfo() {
         args: ['0x65faac6acbd781e7b3e799fa7f6e90b0263fa51e000200000000000000000866'],
         watch: true,
     });
-    const poolAddress = isSuccess ? poolAddressPre[0] : "loading...";
+    const poolAddress = isConnected ? (isSuccess ? poolAddressPre[0] : "loading...") : "connect wallet to view";
 
     const { data: lpBalance } = useContractRead({
         ...lpcontractConfig,
