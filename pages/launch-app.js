@@ -132,12 +132,13 @@ function WalletInfo() {
         setConnectionStat(isConnected);
     }, [isConnected])
 
-    const { data: poolAddress } = useContractRead({
+    const { data: poolAddressPre, isSuccess } = useContractRead({
         ...contractConfig,
         functionName: 'getPool',
         args: ['0x65faac6acbd781e7b3e799fa7f6e90b0263fa51e000200000000000000000866'],
         watch: true,
     });
+    const poolAddress = isSuccess ? poolAddressPre[0] : "loading...";
 
     const { data: lpBalance } = useContractRead({
         ...lpcontractConfig,
@@ -145,8 +146,12 @@ function WalletInfo() {
         args: ["0x5bC2852fEB943B4A43Fa87b275f44B45C4Ca527f"],
         watch: true,
     });
-    console.log({lpBalance});
 
+    console.log(typeof poolAddress);
+    console.log(poolAddress);
+    console.log(lpBalance);
+
+    const CC = dynamic(() => import("../components/copy-clipboard").then(mod => mod.CopyClipboard), { ssr: false })
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -163,9 +168,8 @@ function WalletInfo() {
         </div>
 
         <div className="flex flex-col items-center">
-          <p style={{ margin: '12px 0 24px' }}>
-              五五开地址: {poolAddress}
-          </p>
+              Pool Address: {poolAddress} <CC  content={poolAddress} />
+
           <p style={{ margin: '12px 0 24px' }}>
               你的lp余额: {Number(lpBalance)}
           </p>
