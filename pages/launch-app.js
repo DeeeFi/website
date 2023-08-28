@@ -22,11 +22,6 @@ import {
 } from '@rainbow-me/rainbowkit';
 import {
   metaMaskWallet,
-  rainbowWallet,
-  coinbaseWallet,
-  argentWallet,
-  trustWallet,
-  ledgerWallet,
 } from '@rainbow-me/rainbowkit/wallets';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import {
@@ -71,16 +66,6 @@ const connectors = connectorsForWallets([
     groupName: 'Popular',
     wallets: [
       metaMaskWallet({ projectId, chains }),
-      rainbowWallet({ projectId, chains }),
-      coinbaseWallet({ chains, appName: 'Rainbowkit Demo' }),
-    ],
-  },
-  {
-    groupName: 'Other',
-    wallets: [
-      argentWallet({ projectId, chains }),
-      trustWallet({ projectId, chains }),
-      ledgerWallet({ projectId, chains }),
     ],
   },
 ]);
@@ -96,11 +81,6 @@ const wagmiConfig = createConfig({
 const contractConfig = {
   address: '0xBA12222222228d8Ba445958a75a0704d566BF2C8',
   abi: abi,
-};
-
-const lpcontractConfig = {
-  address: '0x65FaAC6ACbd781e7B3E799fa7f6e90b0263Fa51E',
-  abi: lpcabi,
 };
 
 // const TVChartContainer = dynamic(
@@ -138,18 +118,29 @@ function WalletInfo() {
         args: ['0x65faac6acbd781e7b3e799fa7f6e90b0263fa51e000200000000000000000866'],
         watch: true,
     });
+
     const poolAddress = isConnected ? (isSuccess ? poolAddressPre[0] : "loading...") : "connect wallet to view";
 
-    const { data: lpBalance } = useContractRead({
-        ...lpcontractConfig,
+    const { data: lpBalancePre } = useContractRead({
+        ...{
+            address: poolAddress,
+            abi: lpcabi,
+        },
         functionName: 'balanceOf',
-        args: ["0x5bC2852fEB943B4A43Fa87b275f44B45C4Ca527f"],
+        args: [address],
         watch: true,
     });
 
-    console.log(typeof poolAddress);
-    console.log(poolAddress);
-    console.log(lpBalance);
+    const { data: lpDecimals } = useContractRead({
+        ...{
+            address: poolAddress,
+            abi: lpcabi,
+        },
+        functionName: 'decimals',
+        watch: true,
+    });
+
+    const lpBalance = Number(lpBalancePre) / (10**Number(lpDecimals))
 
     const CC = dynamic(() => import("../components/copy-clipboard").then(mod => mod.CopyClipboard), { ssr: false })
 
@@ -168,11 +159,8 @@ function WalletInfo() {
         </div>
 
         <div className="flex flex-col items-center">
-              Pool Address: {poolAddress} <CC  content={poolAddress} />
-
-          <p style={{ margin: '12px 0 24px' }}>
-              你的lp余额: {Number(lpBalance)}
-          </p>
+            Pool Address: {poolAddress} <CC  content={poolAddress} />
+            你的lp余额: {Number(lpBalance)}
         </div>
 
 
