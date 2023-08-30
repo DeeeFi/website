@@ -76,9 +76,6 @@ var chartColors = {
 	grey: 'rgb(231,233,237)'
 };
 
-import Chart from 'chart.js/auto'
-var color = Chart.helpers.color;
-
 const radar_options = {};
 
 
@@ -89,7 +86,6 @@ const radar_data = {
     ],
     datasets: [{
       label: "My First dataset",
-      backgroundColor: color(chartColors.red).alpha(0.2).rgbString(),
       borderColor: chartColors.red,
       pointBackgroundColor: chartColors.red,
       data: [
