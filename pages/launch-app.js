@@ -76,7 +76,27 @@ var chartColors = {
 	grey: 'rgb(231,233,237)'
 };
 
-const radar_options = {};
+const radar_options = {
+    plugins: {
+        legend: {
+            position: 'right',
+            labels: {
+                font: {
+                    size: 16,
+                }
+            }
+        },
+    },
+    scales: {
+        drawTicks: false,
+        r: {
+            angleLines: { color: 'green' },
+            grid: { color: 'green' },
+            pointLabels: { color: 'green' },
+            ticks: { color: 'green' },
+            }
+    }
+}
 
 
 const radar_data = {
@@ -86,6 +106,7 @@ const radar_data = {
     ],
     datasets: [{
       label: "My First dataset",
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
       borderColor: chartColors.red,
       pointBackgroundColor: chartColors.red,
       data: [
@@ -99,6 +120,7 @@ const radar_data = {
       ]
     }, {
       label: "My Second dataset",
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
       borderColor: chartColors.blue,
       pointBackgroundColor: chartColors.blue,
       data: [
@@ -111,27 +133,6 @@ const radar_data = {
         randomScalingFactor()
       ]
     }, ],
-    options: {
-        legend: {
-            position: 'top',
-            labels: { fontColor: 'white' }
-        },
-        title: {
-            display: true,
-            text: 'Chart.js Radar Chart',
-            fontColor: 'white'
-        },
-        scale: {
-            ticks: {
-                beginAtZero: true,
-                fontColor: 'white', // labels such as 10, 20, etc
-                showLabelBackdrop: false // hide square behind text
-            },
-            pointLabels: { fontColor: 'white' /* labels around the edge like 'Running' */ },
-            gridLines: { color: 'rgba(255, 255, 255, 0.2)' },
-            angleLines: { color: 'white' /* lines radiating from the center */ }
-        }
-    }
 };
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
