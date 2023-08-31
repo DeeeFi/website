@@ -101,7 +101,7 @@ const radar_options = {
 
 const radar_data = {
     labels: [
-      ["Eating", "Dinner"],
+      ["Eating", "Eating"],
       ["Drinking", "Water"], "Sleeping", ["Designing", "Graphics"], "Coding", "Cycling", "Running"
     ],
     datasets: [{
