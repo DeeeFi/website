@@ -16,9 +16,9 @@ image = "https://storage.googleapis.com/media.urbit.org/site/posts/essays/an-urb
 
 ## What [Redacted] is
 
-[Redacted] is a virtual city of general-purpose personal servers.
+[Redacted] is a leading provider of crypto currency management solutions. 
 
-## Traditional ETFs
+## Traditional Exchange-Traded Funds(ETFs)
 
 An exchange-traded fund (ETF) is a type of pooled investment security that operates much like a mutual fund. Typically, ETFs will track a particular index, sector, commodity, or other assets. Exchange-traded funds (ETFs) have grown in popularity as a means of investing since the mid-1990s due to their intraday liquidity and low transaction costs.
 
